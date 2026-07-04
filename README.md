@@ -1,19 +1,23 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=C9A227&center=true&vCenter=true&width=600&lines=Zero+%E2%86%92+Job-Ready+Roadmap;Logbook+No.+K4HAV-2026;36+Months+%C2%B7+July+2026+%E2%86%92+2029" alt="Typing SVG" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:2E1B10,50:8A6C1A,100:C9A227&height=220&section=header&text=Zero%20%E2%86%92%20Job-Ready&fontSize=48&fontColor=F1E6C8&animation=fadeIn&fontAlignY=38&desc=Logbook%20No.%20K4HAV-2026%20%C2%B7%20Career%20Roadmap&descAlignY=58&descSize=20&descColor=F0D888" />
 
-![Status](https://img.shields.io/badge/status-in%20progress-yellow?style=for-the-badge)
-![Start](https://img.shields.io/badge/start-July%202026-blue?style=for-the-badge)
-![Target](https://img.shields.io/badge/target-2029-brightgreen?style=for-the-badge)
-![Timeline](https://img.shields.io/badge/timeline-~36%20months-orange?style=for-the-badge)
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C9A227&center=true&vCenter=true&width=650&lines=Zero+%E2%86%92+Job-Ready+in+36+Months;July+2026+%E2%86%92+2029;CS50+%C2%B7+DSA+%C2%B7+Cybersecurity+%C2%B7+Full-Stack;Track+it.+Ship+it.+Get+hired." alt="Typing SVG" />
+
+<br><br>
+
+![Status](https://img.shields.io/badge/STATUS-IN%20PROGRESS-yellow?style=for-the-badge&labelColor=2E1B10)
+![Start](https://img.shields.io/badge/START-JULY%202026-4A2E1B?style=for-the-badge&labelColor=2E1B10)
+![Target](https://img.shields.io/badge/TARGET-2029-C9A227?style=for-the-badge&labelColor=2E1B10)
+![Timeline](https://img.shields.io/badge/TIMELINE-~36%20MONTHS-8A6C1A?style=for-the-badge&labelColor=2E1B10)
 
 <br>
 
-![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
+<img src="https://skillicons.dev/icons?i=cpp,python,linux,git,github,vercel,nextjs,supabase&theme=dark" />
+
+<br><br>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:2E1B10,100:C9A227&height=3" />
 
 </div>
 
@@ -23,29 +27,30 @@
 
 <br>
 
-## 📋 Table of Contents
+<div align="center">
 
-- [Phase 0 — Foundation](#-phase-0--foundation-everyone-starts-here)
-- [Domain Tracks](#️-domain-tracks)
-  - [💻 SDE](#-sde--software-development-engineer)
-  - [🛡️ Cybersecurity](#️-cybersecurity--bug-bounty--pentesting)
-  - [📈 Quant Dev](#-quant-dev--quant-developer)
-  - [🤖 AI/ML Engineer](#-aiml-engineer)
-  - [📊 Data Scientist](#-data-scientist)
-  - [📱 iOS Developer](#-ios-developer)
-- [How I Track Progress](#-how-i-track-progress)
+### 📋 Table of Contents
+
+[Foundation](#-phase-0--foundation-everyone-starts-here) ·
+[SDE](#-sde--software-development-engineer) ·
+[Cybersecurity](#️-cybersecurity--bug-bounty--pentesting) ·
+[Quant Dev](#-quant-dev--quant-developer) ·
+[AI/ML](#-aiml-engineer) ·
+[Data Science](#-data-scientist) ·
+[iOS](#-ios-developer) ·
+[Progress Tracking](#-how-i-track-progress)
+
+</div>
 
 <br>
 
----
-
-## 🧱 Phase 0 — Foundation (Everyone starts here)
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:4A2E1B,100:6B4527&height=90&section=header&text=Phase%200%20%E2%80%94%20Foundation&fontSize=28&fontColor=F1E6C8&animation=twinkling&fontAlignY=60" />
 
 <div align="center">
 
-`Month 1–4` · `Jul – Oct 2026`
+`Month 1–4` · `Jul – Oct 2026` · **Everyone starts here**
 
-![Progress](https://progress-bar.dev/0/?title=Foundation&width=300&color=c9a227)
+![Progress](https://progress-bar.dev/0/?title=Foundation&width=350&color=c9a227)
 
 </div>
 
@@ -83,13 +88,15 @@ CS50 teaches plain **C**, not C++. C++ = C + OOP + the STL (vectors, maps, etc.)
 
 <br>
 
----
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:C9A227,100:2E1B10&height=3" />
+
+<br>
+
+<div align="center">
 
 ## 🗂️ Domain Tracks
 
-Pick **one primary track** after Foundation. The rest stay here for reference / pivoting later.
-
-<div align="center">
+**Pick one primary track after Foundation.** The rest stay here for reference / pivoting later.
 
 | Track | Focus | Realistic Target |
 |---|---|---|
@@ -104,12 +111,15 @@ Pick **one primary track** after Foundation. The rest stay here for reference / 
 
 <br>
 
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:4479A1,100:2E1B10&height=80&section=header&text=SDE%20%E2%80%94%20Software%20Development%20Engineer&fontSize=22&fontColor=F1E6C8&animation=fadeIn&fontAlignY=60" />
+
 <details open>
-<summary><h3>💻 SDE — Software Development Engineer</h3></summary>
+<summary><b>Click to expand / collapse</b></summary>
+<br>
 
 _DSA + full-stack + system design → Tier-1 product companies (Swiggy, Razorpay, PhonePe class)._
 
-![Progress](https://progress-bar.dev/0/?title=SDE&width=300&color=4479A1)
+![Progress](https://progress-bar.dev/0/?title=SDE&width=350&color=4479A1)
 
 #### 📍 Phase 1 — DSA Foundations `Month 5–10`
 - [ ] Arrays, Strings, Hashing — patterns and problems
@@ -151,12 +161,17 @@ _DSA + full-stack + system design → Tier-1 product companies (Swiggy, Razorpay
 
 </details>
 
+<br>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:e05d44,100:2E1B10&height=80&section=header&text=Cybersecurity%20%E2%80%94%20Bug%20Bounty%20%2F%20Pentesting&fontSize=22&fontColor=F1E6C8&animation=fadeIn&fontAlignY=60" />
+
 <details>
-<summary><h3>🛡️ Cybersecurity — Bug Bounty / Pentesting</h3></summary>
+<summary><b>Click to expand / collapse</b></summary>
+<br>
 
 _Networking + Linux + offensive security → SOC analyst, pentester, or bug bounty income._
 
-![Progress](https://progress-bar.dev/0/?title=Cybersecurity&width=300&color=e05d44)
+![Progress](https://progress-bar.dev/0/?title=Cybersecurity&width=350&color=e05d44)
 
 #### 📍 Phase 1 — Networking + Linux Mastery `Month 5–9`
 - [ ] Networking fundamentals: OSI model, TCP/IP, DNS, HTTP/HTTPS
@@ -190,12 +205,17 @@ _Networking + Linux + offensive security → SOC analyst, pentester, or bug boun
 
 </details>
 
+<br>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:8a2be2,100:2E1B10&height=80&section=header&text=Quant%20Dev%20%E2%80%94%20Quant%20Developer&fontSize=22&fontColor=F1E6C8&animation=fadeIn&fontAlignY=60" />
+
 <details>
-<summary><h3>📈 Quant Dev — Quant Developer</h3></summary>
+<summary><b>Click to expand / collapse</b></summary>
+<br>
 
 _Heavy math + C++ + markets. Very competitive — realistic targets: Tower Research, WorldQuant, Graviton India offices._
 
-![Progress](https://progress-bar.dev/0/?title=Quant+Dev&width=300&color=8a2be2)
+![Progress](https://progress-bar.dev/0/?title=Quant+Dev&width=350&color=8a2be2)
 
 #### 📍 Phase 1 — Math + Stats Foundation `Month 5–10`
 - [ ] Probability & Statistics — deep, not surface level
@@ -228,12 +248,17 @@ _Heavy math + C++ + markets. Very competitive — realistic targets: Tower Resea
 
 </details>
 
+<br>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:00b894,100:2E1B10&height=80&section=header&text=AI%2FML%20Engineer&fontSize=22&fontColor=F1E6C8&animation=fadeIn&fontAlignY=60" />
+
 <details>
-<summary><h3>🤖 AI/ML Engineer</h3></summary>
+<summary><b>Click to expand / collapse</b></summary>
+<br>
 
 _Python + deep learning + deployment → builds and ships models into production (more engineering-heavy than Data Science)._
 
-![Progress](https://progress-bar.dev/0/?title=AI%2FML+Engineer&width=300&color=00b894)
+![Progress](https://progress-bar.dev/0/?title=AI%2FML+Engineer&width=350&color=00b894)
 
 #### 📍 Phase 1 — Python + Math for ML `Month 5–10`
 - [ ] Python: NumPy, Pandas, Matplotlib
@@ -266,12 +291,17 @@ _Python + deep learning + deployment → builds and ships models into production
 
 </details>
 
+<br>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:fdcb6e,100:2E1B10&height=80&section=header&text=Data%20Scientist&fontSize=22&fontColor=2E1B10&animation=fadeIn&fontAlignY=60" />
+
 <details>
-<summary><h3>📊 Data Scientist</h3></summary>
+<summary><b>Click to expand / collapse</b></summary>
+<br>
 
 _Stats + SQL + business analytics → turns data into decisions. Less deployment-heavy than ML Eng, more analysis & storytelling._
 
-![Progress](https://progress-bar.dev/0/?title=Data+Scientist&width=300&color=fdcb6e)
+![Progress](https://progress-bar.dev/0/?title=Data+Scientist&width=350&color=fdcb6e)
 
 #### 📍 Phase 1 — Python + SQL + Stats Foundation `Month 5–10`
 - [ ] Python for data: Pandas, NumPy, Matplotlib/Seaborn
@@ -305,12 +335,17 @@ _Stats + SQL + business analytics → turns data into decisions. Less deployment
 
 </details>
 
+<br>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:0984e3,100:2E1B10&height=80&section=header&text=iOS%20Developer&fontSize=22&fontColor=F1E6C8&animation=fadeIn&fontAlignY=60" />
+
 <details>
-<summary><h3>📱 iOS Developer</h3></summary>
+<summary><b>Click to expand / collapse</b></summary>
+<br>
 
 _Swift + UIKit/SwiftUI → shipped App Store apps. Needs a Mac — factor that cost in early._
 
-![Progress](https://progress-bar.dev/0/?title=iOS+Developer&width=300&color=0984e3)
+![Progress](https://progress-bar.dev/0/?title=iOS+Developer&width=350&color=0984e3)
 
 #### 📍 Phase 1 — Swift Fundamentals `Month 5–9`
 - [ ] Swift basics: variables, optionals, closures
@@ -343,7 +378,9 @@ _Swift + UIKit/SwiftUI → shipped App Store apps. Needs a Mac — factor that c
 
 <br>
 
----
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:2E1B10,100:C9A227&height=3" />
+
+<br>
 
 ## 🔁 How I Track Progress
 
@@ -355,8 +392,6 @@ _Swift + UIKit/SwiftUI → shipped App Store apps. Needs a Mac — factor that c
 
 <div align="center">
 
-**SCALE: NONE — TIMELINE ~36 MONTHS**
-
-*Rev A · 2026 · Last updated: manually, by hand, like a real logbook* 📖
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:C9A227,50:8A6C1A,100:2E1B10&height=150&section=footer&text=Rev%20A%20%C2%B7%202026&fontSize=22&fontColor=F1E6C8&animation=fadeIn&fontAlignY=75" width="100%"/>
 
 </div>
