@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Career Roadmap — Logbook</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --leather-dark:#2E1B10;
+    --leather:#4A2E1B;
+    --leather-light:#6B4527;
+    --stitch:#C9A96E;
+    --brass:#C9A227;
+    --brass-light:#F0D888;
+    --brass-dark:#8A6C1A;
+    --paper:#F1E6C8;
+    --paper2:#E9DAB3;
+    --paper-line:rgba(90,60,30,0.14);
+    --ink:#2B1E14;
+    --ink-soft:#5A4A38;
+    --ink-red:#7C2D2D;
+    --serif:'EB Garamond', serif;
+    --stamp:'Special Elite', monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background: radial-gradient(ellipse at 30% 0%, #4a3322 0%, #201206 70%);
+    color:var(--ink);
+    font-family:var(--serif);
+    padding:32px 14px 70px;
+  }
+  .book{
+    max-width:940px; margin:0 auto; position:relative;
+    background:linear-gradient(160deg, var(--leather-light), var(--leather) 40%, var(--leather-dark) 100%);
+    border-radius:10px;
+    padding:26px 26px 26px 46px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.55), inset 0 0 0 2px rgba(0,0,0,0.35), inset 0 2px 10px rgba(255,255,255,0.08);
+  }
+  .book::before{
+    content:''; position:absolute; inset:10px;
+    border:2px dashed var(--stitch); opacity:.35; border-radius:6px; pointer-events:none;
+  }
+  .rings{
+    position:absolute; left:8px; top:20px; bottom:20px; width:22px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .ring{
+    width:20px; height:20px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #ddd, #888 45%, #333 75%);
+    box-shadow:0 2px 3px rgba(0,0,0,0.6), inset 0 0 2px #fff;
+  }
+  .plate{
+    position:relative;
+    background:linear-gradient(160deg, var(--brass-light), var(--brass) 45%, var(--brass-dark) 100%);
+    border-radius:6px; padding:16px 20px 14px; margin-bottom:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.45), inset 0 1px 1px rgba(255,255,255,0.6), inset 0 -2px 4px rgba(0,0,0,0.35);
+  }
+  .rivet{ position:absolute; width:9px; height:9px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #fff6d0, #8a6c1a 70%); box-shadow:0 1px 2px rgba(0,0,0,0.6); }
+  .rivet.tl{ top:7px; left:7px; } .rivet.tr{ top:7px; right:7px; }
+  .rivet.bl{ bottom:7px; left:7px; } .rivet.br{ bottom:7px; right:7px; }
+  .plate-eyebrow{ font-family:var(--stamp); font-size:10.5px; letter-spacing:.14em; color:#4a3510; text-transform:uppercase; margin-bottom:6px; }
+  .plate-title{ font-family:var(--stamp); font-size:clamp(19px,3.6vw,27px); color:#3a2a0c; margin:0 0 10px;
+    text-shadow:0 1px 0 rgba(255,255,255,0.45), 0 -1px 0 rgba(0,0,0,0.25); }
+  .plate-meta{ display:flex; flex-wrap:wrap; gap:14px; font-family:var(--stamp); font-size:10.5px; color:#3a2a0c; }
+  .plate-meta b{ display:block; font-size:9px; opacity:.7; text-transform:uppercase; letter-spacing:.08em; margin-bottom:2px;}
+
+  .gauge-wrap{ display:flex; align-items:center; gap:16px; margin-top:14px; flex-wrap:wrap; }
+  .gauge-face{
+    background:radial-gradient(circle at 40% 35%, #fdf7e6, #e3d3a3 70%, #b89a5f 100%);
+    border-radius:50%; width:96px; height:96px; position:relative;
+    box-shadow:0 3px 6px rgba(0,0,0,0.5), inset 0 0 0 3px #8a6c1a, inset 0 2px 4px rgba(255,255,255,0.6);
+    flex:none;
+  }
+  .gauge-pct{ position:absolute; bottom:16px; left:0; right:0; text-align:center; font-family:var(--stamp); font-size:14px; color:#3a2a0c; }
+  .needle{
+    position:absolute; left:50%; top:50%; width:3px; height:34px;
+    background:linear-gradient(var(--ink-red), var(--ink));
+    transform-origin:50% 100%; transform:translate(-50%,-100%) rotate(-90deg);
+    border-radius:2px; transition:transform .5s ease;
+  }
+  .pivot{ position:absolute; left:50%; top:50%; width:10px; height:10px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #fff6d0, #8a6c1a 70%); transform:translate(-50%,-50%); box-shadow:0 1px 2px rgba(0,0,0,.5); }
+  .gauge-caption{ font-family:var(--stamp); font-size:11px; color:var(--brass-light); line-height:1.7; }
+  .gauge-caption b{ color:#fff2c9; }
+
+  .pinned-note{
+    background:var(--paper2); border:1px solid rgba(0,0,0,0.15);
+    padding:12px 16px; margin:20px 0; font-family:var(--serif); font-style:italic; font-size:14px; color:var(--ink-soft);
+    line-height:1.6; border-radius:2px; box-shadow:0 4px 8px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.05);
+    transform:rotate(-0.4deg); position:relative;
+  }
+  .pinned-note::before{
+    content:''; position:absolute; top:-8px; left:24px; width:12px; height:12px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #e8534f, #7c2d2d 75%); box-shadow:0 2px 3px rgba(0,0,0,0.5);
+  }
+  .pinned-note b{ font-style:normal; font-family:var(--stamp); font-size:11px; color:var(--ink-red); }
+
+  .alt-note{
+    background:rgba(90,60,30,0.08); border-left:3px solid var(--brass-dark);
+    padding:8px 12px; margin:2px 0 12px 30px; font-family:var(--serif); font-style:italic; font-size:13.5px;
+    color:var(--ink-soft); line-height:1.5; border-radius:2px;
+  }
+  .alt-note b{ font-style:normal; font-family:var(--stamp); font-size:10px; color:var(--ink-red); letter-spacing:.03em; }
+
+  .page{
+    background: repeating-linear-gradient(var(--paper) 0px, var(--paper) 27px, var(--paper-line) 28px), var(--paper);
+    border-radius:2px; box-shadow:0 6px 14px rgba(0,0,0,0.4), inset 0 0 40px rgba(90,60,30,0.06);
+    padding:16px 18px 6px; margin-bottom:22px; position:relative;
+  }
+  .page::after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:6px;
+    background:linear-gradient(rgba(0,0,0,0.25), transparent); filter:blur(1px); }
+
+  .tabs{ display:flex; gap:6px; margin:0 0 0 4px; flex-wrap:wrap; }
+  .tab{
+    font-family:var(--stamp); font-size:11.5px; letter-spacing:.03em; padding:9px 14px 8px; cursor:pointer; color:#5a4326;
+    background:linear-gradient(180deg, #e2cf9c, #cbb27b); border:1px solid rgba(0,0,0,0.2); border-bottom:none;
+    border-radius:6px 6px 0 0; box-shadow:0 -2px 4px rgba(0,0,0,0.15) inset, 0 2px 3px rgba(0,0,0,0.3);
+    position:relative; top:3px; transition:.15s;
+  }
+  .tab .tprog{ display:block; font-size:9px; opacity:.7; margin-top:2px; }
+  .tab:hover{ top:1px; }
+  .tab.active{ background:var(--paper); color:var(--ink); top:0;
+    box-shadow:0 -2px 3px rgba(0,0,0,0.06) inset, 0 -3px 4px rgba(0,0,0,0.25); border-color:rgba(0,0,0,0.15); }
+
+  .domain-panel{
+    background: repeating-linear-gradient(var(--paper) 0px, var(--paper) 27px, var(--paper-line) 28px), var(--paper);
+    border-radius:0 4px 4px 4px; box-shadow:0 8px 18px rgba(0,0,0,0.45), inset 0 0 50px rgba(90,60,30,0.06);
+    padding:18px 20px 10px;
+  }
+  .domain-head h2{ font-family:var(--stamp); font-size:17px; margin:0 0 4px; color:var(--ink); }
+  .domain-head p{ margin:0 0 6px; font-size:14.5px; color:var(--ink-soft); font-style:italic; }
+
+  .phase{ margin-bottom:18px; }
+  .phead{
+    display:inline-flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+    background:linear-gradient(180deg,#7a4f32,#5a3820); color:#f1e6c8; padding:7px 14px; border-radius:3px;
+    font-family:var(--stamp); font-size:12.5px; box-shadow:0 3px 5px rgba(0,0,0,0.4); margin-bottom:8px;
+  }
+  .phead .prange{ opacity:.75; font-size:10.5px; }
+  .phead .pcount{ color:var(--brass-light); font-size:10.5px; }
+
+  .items{ list-style:none; margin:0 0 4px; padding:0; }
+  .item{ display:flex; align-items:flex-start; gap:11px; padding:6px 4px; cursor:pointer; font-size:15px; color:var(--ink-soft); line-height:1.5; }
+  .item:hover .label{ color:var(--ink); }
+  .box{
+    flex:none; width:17px; height:17px; margin-top:2px; border-radius:2px;
+    background:linear-gradient(160deg,#fffdf5,#e4d6ae);
+    box-shadow:inset 0 1px 3px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.6);
+    display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .item.done .box::after{ content:'✓'; color:var(--ink-red); font-weight:700; font-size:13px; font-family:var(--serif); transform:rotate(-6deg); }
+  .item.done .label{ color:#9c8a6c; text-decoration:line-through; text-decoration-color:var(--ink-red); text-decoration-thickness:2px; }
+
+  .stamp-footer{ margin-top:22px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  .wax-stamp{
+    font-family:var(--stamp); font-size:10.5px; color:#f1e6c8; opacity:.75; border:1px dashed var(--stitch); border-radius:50%;
+    width:70px; height:70px; display:flex; align-items:center; justify-content:center; text-align:center; transform:rotate(-8deg); line-height:1.3;
+  }
+  .reset-btn{
+    font-family:var(--stamp); font-size:11px; color:#3a2a0c;
+    background:linear-gradient(180deg, var(--brass-light), var(--brass-dark)); border:none; border-radius:5px; padding:9px 16px; cursor:pointer;
+    box-shadow:0 3px 0 #5c4712, 0 5px 8px rgba(0,0,0,0.4);
+  }
+  .reset-btn:active{ box-shadow:0 1px 0 #5c4712; transform:translateY(2px); }
+</style>
+</head>
+<body>
+<div class="book">
+  <div class="rings" id="rings"></div>
+
+  <div class="plate">
+    <span class="rivet tl"></span><span class="rivet tr"></span><span class="rivet bl"></span><span class="rivet br"></span>
+    <div class="plate-eyebrow">Logbook No. K4HAV-2026</div>
+    <h1 class="plate-title">Zero → Job-Ready Roadmap</h1>
+    <div class="gauge-wrap">
+      <div class="gauge-face">
+        <div class="needle" id="needle"></div>
+        <div class="pivot"></div>
+        <div class="gauge-pct" id="overallLabel">0%</div>
+      </div>
+      <div class="gauge-caption">
+        <b>Start:</b> Zero, July 2026<br>
+        <b>Target:</b> Job-ready, 2029<br>
+        <span id="statusVal">Not started</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pinned-note">
+    <b>Honest note —</b> you can't run all tracks at full speed at once. Foundation is shared by everyone, so build that first no matter what. After that, pick one primary domain and treat the rest as exploration/backup. Given the DSA + Linux work you'd need for SDE anyway, and how it overlaps with Cybersecurity, that pairing gets you to a job fastest — but explore all the domains below and choose what actually pulls you.
+  </div>
+
+  <div class="page" id="foundationBox"></div>
+
+  <div class="tabs" id="tabBar"></div>
+  <div class="domain-panel" id="domainPanel"></div>
+
+  <div class="stamp-footer">
+    <span style="font-family:var(--stamp); font-size:10px; color:var(--brass-light); opacity:.7;">SCALE: NONE — TIMELINE ~36 MONTHS</span>
+    <button class="reset-btn" id="resetBtn">RESET ALL PROGRESS</button>
+    <div class="wax-stamp">REV A<br>2026</div>
+  </div>
+</div>
+
+<script>
+const FOUNDATION = {
+  title:'Phase 0 — Foundation (Everyone starts here)',
+  range:'Month 1–4 · Jul–Oct 2026',
+  items:[
+    'Complete CS50x (Harvard) fully, including the final project — this covers your C basics (variables, loops, functions, arrays, pointers) plus Python, SQL, and web dev',
+    'Transition C to C++: learn OOP (classes, objects) and STL (vectors, maps, sets) — needed later for DSA/competitive coding',
+    'Learn Git & GitHub: commits, branches, PRs, resolving conflicts',
+    'Get comfortable in Linux terminal: file system, permissions, piping, shell basics',
+    'Discrete math refresher: logic, sets, basic combinatorics',
+    'Push typing speed to 40+ WPM',
+    'Start daily spoken-English practice (shadowing, self-recording) — treat it as seriously as code'
+  ],
+  altNotes:{
+    0:'<b>Not into CS50?</b> — CS50 is the gold standard because it builds real fundamentals (memory, low-level thinking) via C, but if the C-heavy start feels too rough for a total beginner, equally solid options: <b>freeCodeCamp</b> (free, project-based, very beginner-friendly, browser-based practice), <b>The Odin Project</b> (structured, community-backed, great if you lean web dev), or <b>Python Crash Course</b> book plus <b>CS50P (CS50 in Python)</b> if you want Python-first instead of C-first. Whichever you pick, finish it fully with a final project — dont just watch.',
+    1:'<b>Why C++ separately?</b> — CS50 teaches plain C, not C++. C++ is C plus OOP and the STL (vectors, maps, etc.), which almost every DSA course/LeetCode/competitive coding setup assumes you know. Once CS50 is done, this is a quick add-on (1–2 weeks), not a from-scratch language.'
+  }
+};
+
+const DOMAINS = {
+  sde:{
+    name:'SDE', full:'Software Development Engineer',
+    tagline:'DSA + full-stack + system design → Tier-1 product companies (Swiggy, Razorpay, PhonePe class).',
+    phases:[
+      {title:'Phase 1 — DSA Foundations', range:'Month 5–10', items:[
+        'Arrays, Strings, Hashing — patterns and problems',
+        'Recursion & Backtracking',
+        'Sorting & Searching algorithms',
+        'Linked List, Stack, Queue',
+        'Striver A2Z DSA sheet — Part 1',
+        'Solve 150+ easy-level problems on LeetCode/GFG'
+      ]},
+      {title:'Phase 2 — DSA Advanced + CS Core', range:'Month 11–16', items:[
+        'Trees, BST, Heaps',
+        'Graphs: BFS, DFS, Union-Find, Dijkstra',
+        'Dynamic Programming (start to finish)',
+        'OOP principles + common design patterns',
+        'DBMS: SQL, normalization, indexing',
+        'OS + Computer Networks basics for interviews',
+        'Cross 300+ total DSA problems solved'
+      ]},
+      {title:'Phase 3 — Full-Stack + Projects', range:'Month 17–24', items:[
+        'Backend: Node/Express or your chosen stack, REST API design',
+        'Databases: PostgreSQL and MongoDB, when to use which',
+        'Low-Level Design (LLD) basics — SOLID, class design',
+        'Build and deploy 3 full-stack projects (build on FlixBase experience)',
+        'Contribute 2+ real PRs to an open-source project',
+        'Write clean READMEs and document your projects properly'
+      ]},
+      {title:'Phase 4 — System Design + Interview Prep', range:'Month 25–30', items:[
+        'High-Level Design: scaling, caching, load balancing, queues',
+        'Mock interviews — technical and behavioral, at least 10',
+        'Resume + LinkedIn + GitHub portfolio polish',
+        'Targeted applications: Swiggy, Razorpay, PhonePe-tier companies',
+        'Behavioral/HR round prep — STAR method answers ready'
+      ]},
+      {title:'Phase 5 — Offer & Onboarding', range:'Month 31–36', items:[
+        'Apply broadly, track applications in a sheet',
+        'Negotiate offer (know your market value)',
+        'Prep for Day 1: understand company codebase practices',
+        'Land the job'
+      ]}
+    ]
+  },
+  cyber:{
+    name:'Cybersecurity', full:'Cybersecurity / Bug Bounty',
+    tagline:'Networking + Linux + offensive security → SOC analyst, pentester, or bug bounty income.',
+    phases:[
+      {title:'Phase 1 — Networking + Linux Mastery', range:'Month 5–9', items:[
+        'Networking fundamentals: OSI model, TCP/IP, DNS, HTTP/HTTPS',
+        'Deepen Linux internals: permissions, processes, shell scripting (build on your Arch setup)',
+        'Security fundamentals: CIA triad, common attack types',
+        'Learn basic firewall & VPN concepts'
+      ]},
+      {title:'Phase 2 — Offensive Security Basics', range:'Month 10–15', items:[
+        'Core toolset: Nmap, Burp Suite, Metasploit, Wireshark',
+        'OWASP Top 10 web vulnerabilities, in depth',
+        'Python for security scripting',
+        'Clear 100+ rooms/boxes on TryHackMe + HackTheBox'
+      ]},
+      {title:'Phase 3 — Bug Bounty + Certification', range:'Month 16–22', items:[
+        'Start bug bounty hunting on HackerOne / Bugcrowd',
+        'Compete in CTFs (picoCTF and similar)',
+        'Get eJPT or CEH certified',
+        'Advanced Burp Suite usage + API security testing'
+      ]},
+      {title:'Phase 4 — OSCP + Specialization', range:'Month 23–30', items:[
+        'OSCP prep and exam',
+        'Cloud security basics: AWS/Azure security fundamentals',
+        'Practice professional report writing & responsible disclosure',
+        'Build a public portfolio of write-ups (sanitized, ethical)'
+      ]},
+      {title:'Phase 5 — Job Hunt', range:'Month 31–36', items:[
+        'Apply for SOC Analyst / Junior Pentester roles',
+        'Keep bug bounty income running in parallel',
+        'Network in security communities (Discord, Telegram, local meetups)',
+        'Land the job or go full-time bounty hunter'
+      ]}
+    ]
+  },
+  quant:{
+    name:'Quant Dev', full:'Quant Developer',
+    tagline:'Heavy math + C++ + markets. Very competitive — realistic targets: Tower Research, WorldQuant, Graviton India offices.',
+    phases:[
+      {title:'Phase 1 — Math + Stats Foundation', range:'Month 5–10', items:[
+        'Probability & Statistics — deep, not surface level',
+        'Linear Algebra',
+        'Multivariable Calculus',
+        'Python for data: NumPy, Pandas'
+      ]},
+      {title:'Phase 2 — Finance + C++', range:'Month 11–17', items:[
+        'Financial markets basics: equities, derivatives, options',
+        'Advanced C++: STL, multithreading, low-latency concepts',
+        'Time series analysis',
+        'Intro to stochastic processes'
+      ]},
+      {title:'Phase 3 — Quant Skills + Projects', range:'Month 18–25', items:[
+        'Algorithmic trading strategy basics',
+        'Backtesting in Python (backtrader/zipline)',
+        'Options pricing: Black-Scholes, the Greeks',
+        'Keep DSA sharp — quant interviews test this heavily too'
+      ]},
+      {title:'Phase 4 — Interview Prep', range:'Month 26–32', items:[
+        'Brain-teaser & quant interview practice ("Heard on the Street" style)',
+        'Optional: ML for quant strategies',
+        'System design for trading systems',
+        'Apply to quant desks — expect a long, high-rejection cycle'
+      ]},
+      {title:'Phase 5 — Job Hunt', range:'Month 33–36', items:[
+        'Target internships first — direct full-time entry is rare',
+        'Network with quant communities (QuantConnect, r/quant)',
+        'Land an internship or junior quant dev role'
+      ]}
+    ]
+  },
+  aiml:{
+    name:'AI/ML Eng', full:'AI/ML Engineer',
+    tagline:'Python + deep learning + deployment → builds and ships models into production (more engineering-heavy than Data Science).',
+    phases:[
+      {title:'Phase 1 — Python + Math for ML', range:'Month 5–10', items:[
+        'Python: NumPy, Pandas, Matplotlib',
+        'Statistics & Probability for ML',
+        'Linear Algebra + Calculus fundamentals for ML'
+      ]},
+      {title:'Phase 2 — Core Machine Learning', range:'Month 11–16', items:[
+        'Supervised & unsupervised learning with scikit-learn',
+        'Andrew Ng ML course / CS229 fundamentals',
+        'Feature engineering & model evaluation',
+        'SQL for data work'
+      ]},
+      {title:'Phase 3 — Deep Learning', range:'Month 17–23', items:[
+        'Neural network fundamentals with PyTorch',
+        'CNNs, RNNs, Transformer basics',
+        'Complete a recognized deep learning specialization',
+        'Place top 20% in 3+ Kaggle competitions'
+      ]},
+      {title:'Phase 4 — Specialization + Projects', range:'Month 24–30', items:[
+        'Pick NLP or Computer Vision as your specialization',
+        'LLMs/GenAI: fine-tuning, RAG, prompt engineering',
+        'MLOps: Docker, CI/CD for models, deployment as APIs',
+        'Build and deploy 3–4 end-to-end ML projects'
+      ]},
+      {title:'Phase 5 — Job Hunt', range:'Month 31–36', items:[
+        'Start applications as ML/Data Engineer if pure ML roles are scarce entry-level',
+        'Build case studies from your Kaggle + deployed projects',
+        'Transition into ML Engineer / Applied Scientist over time',
+        'Land the job'
+      ]}
+    ]
+  },
+  datasci:{
+    name:'Data Sci', full:'Data Scientist',
+    tagline:'Stats + SQL + business analytics → turns data into decisions. Less deployment-heavy than ML Eng, more analysis & storytelling.',
+    phases:[
+      {title:'Phase 1 — Python + SQL + Stats Foundation', range:'Month 5–10', items:[
+        'Python for data: Pandas, NumPy, Matplotlib/Seaborn',
+        'SQL — deep dive: joins, window functions, CTEs, query optimization',
+        'Statistics: distributions, hypothesis testing, confidence intervals',
+        'Advanced spreadsheet skills: Excel/Google Sheets (pivot tables, formulas)'
+      ]},
+      {title:'Phase 2 — Data Analysis & Visualization', range:'Month 11–16', items:[
+        'Exploratory Data Analysis (EDA) techniques on real datasets',
+        'Dashboarding: Tableau or Power BI',
+        'A/B testing & experimentation design',
+        'Data storytelling — communicating insights to non-technical stakeholders'
+      ]},
+      {title:'Phase 3 — Applied ML for Data Science', range:'Month 17–23', items:[
+        'Regression & classification with scikit-learn',
+        'Time series forecasting (sales, demand, trends)',
+        'Clustering & segmentation for business use cases',
+        'Solve 3+ real-world Kaggle datasets end-to-end'
+      ]},
+      {title:'Phase 4 — Advanced + Specialization', range:'Month 24–30', items:[
+        'Causal inference basics (why vs correlation)',
+        'Cloud data warehouses: BigQuery or Snowflake fundamentals',
+        'Intro to MLOps — just enough to hand models off to engineers',
+        'Build 3–4 portfolio case studies with a clear business problem → insight → impact story'
+      ]},
+      {title:'Phase 5 — Job Hunt', range:'Month 31–36', items:[
+        'Start applications as Data Analyst, grow into Data Scientist',
+        'Portfolio site with case studies, not just notebooks',
+        'Network with analytics/data communities',
+        'Land the job'
+      ]}
+    ]
+  },
+  ios:{
+    name:'iOS Dev', full:'iOS Developer',
+    tagline:'Swift + UIKit/SwiftUI → shipped App Store apps. Needs a Mac — factor that cost in early.',
+    phases:[
+      {title:'Phase 1 — Swift Fundamentals', range:'Month 5–9', items:[
+        'Swift basics: variables, optionals, closures',
+        'Get access to a Mac + set up Xcode (required, plan for this cost)',
+        'OOP in Swift'
+      ]},
+      {title:'Phase 2 — iOS Frameworks', range:'Month 10–15', items:[
+        'UIKit fundamentals',
+        'SwiftUI (the modern approach — prioritize this)',
+        'MVC / MVVM architecture',
+        'Core Data + networking with URLSession'
+      ]},
+      {title:'Phase 3 — Advanced + Shipping', range:'Month 16–22', items:[
+        'Combine framework',
+        'Third-party libraries via Swift Package Manager',
+        'Build and publish 3 apps to the App Store',
+        'Push notifications, in-app purchases'
+      ]},
+      {title:'Phase 4 — Portfolio + Interview Prep', range:'Month 23–30', items:[
+        'Polish your 3 shipped apps into a strong portfolio',
+        'iOS interview prep: DSA + iOS-specific system design',
+        'Contribute to an open-source iOS project'
+      ]},
+      {title:'Phase 5 — Job Hunt', range:'Month 31–36', items:[
+        'Apply to product companies and iOS-focused agencies',
+        'Showcase live App Store apps in every application',
+        'Land the job'
+      ]}
+    ]
+  }
+};
+
+let progress = {};
+let activeDomain = 'sde';
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('roadmap-progress-v1');
+    progress = res && res.value ? JSON.parse(res.value) : {};
+  }catch(e){ progress = {}; }
+  render();
+}
+async function saveProgress(){
+  try{ await window.storage.set('roadmap-progress-v1', JSON.stringify(progress)); }catch(e){ console.error('save failed', e); }
+}
+
+function allItemIds(){
+  const ids = [];
+  FOUNDATION.items.forEach((_,i)=>ids.push('foundation-0-'+i));
+  Object.entries(DOMAINS).forEach(([dk,d])=>{
+    d.phases.forEach((p,pi)=>p.items.forEach((_,ii)=>ids.push(dk+'-'+pi+'-'+ii)));
+  });
+  return ids;
+}
+function domainItemIds(dk){
+  const ids = [];
+  DOMAINS[dk].phases.forEach((p,pi)=>p.items.forEach((_,ii)=>ids.push(dk+'-'+pi+'-'+ii)));
+  return ids;
+}
+function pct(ids){
+  if(!ids.length) return 0;
+  const done = ids.filter(id=>progress[id]).length;
+  return Math.round(done/ids.length*100);
+}
+function toggle(id){
+  progress[id] = !progress[id];
+  saveProgress();
+  render();
+}
+
+function renderPhaseHTML(dk, phase, pi){
+  const ids = phase.items.map((_,ii)=>dk+'-'+pi+'-'+ii);
+  const done = ids.filter(id=>progress[id]).length;
+  const itemsHTML = phase.items.map((label,ii)=>{
+    const id = dk+'-'+pi+'-'+ii;
+    const isDone = !!progress[id];
+    return '<li class="item '+(isDone?'done':'')+'" data-id="'+id+'"><span class="box"></span><span class="label">'+label+'</span></li>';
+  }).join('');
+  return '<div class="phase"><div class="phead"><span>'+phase.title+'</span><span class="prange">'+phase.range+'</span><span class="pcount">'+done+'/'+ids.length+'</span></div><ul class="items">'+itemsHTML+'</ul></div>';
+}
+
+function render(){
+  const fIds = FOUNDATION.items.map((_,i)=>'foundation-0-'+i);
+  const fDone = fIds.filter(id=>progress[id]).length;
+  document.getElementById('foundationBox').innerHTML =
+    '<div class="phead" style="margin:0 0 8px;">'+
+      '<span>'+FOUNDATION.title+'</span><span class="prange">'+FOUNDATION.range+'</span><span class="pcount">'+fDone+'/'+fIds.length+'</span>'+
+    '</div>'+
+    '<ul class="items">'+
+      FOUNDATION.items.map((label,i)=>{
+        const id = 'foundation-0-'+i;
+        const isDone = !!progress[id];
+        const note = FOUNDATION.altNotes && FOUNDATION.altNotes[i] ? '<div class="alt-note">'+FOUNDATION.altNotes[i]+'</div>' : '';
+        return '<li class="item '+(isDone?'done':'')+'" data-id="'+id+'"><span class="box"></span><span class="label">'+label+'</span></li>'+note;
+      }).join('')+
+    '</ul>';
+
+  const tabBar = document.getElementById('tabBar');
+  tabBar.innerHTML = Object.entries(DOMAINS).map(([dk,d])=>{
+    const p = pct(domainItemIds(dk));
+    return '<button class="tab '+(dk===activeDomain?'active':'')+'" data-domain="'+dk+'">'+d.name+'<span class="tprog">'+p+'%</span></button>';
+  }).join('');
+
+  const d = DOMAINS[activeDomain];
+  document.getElementById('domainPanel').innerHTML =
+    '<div class="domain-head"><h2>'+d.full+'</h2><p>'+d.tagline+'</p></div>'+
+    d.phases.map((p,pi)=>renderPhaseHTML(activeDomain,p,pi)).join('');
+
+  const overallIds = allItemIds();
+  const op = pct(overallIds);
+  document.getElementById('overallLabel').textContent = op+'%';
+  document.getElementById('needle').style.transform = 'translate(-50%,-100%) rotate('+(-90+op*1.8)+'deg)';
+  document.getElementById('statusVal').textContent = op===0?'Not started':op===100?'Job ready':'In progress';
+
+  document.querySelectorAll('.item').forEach(el=>{ el.onclick = ()=>toggle(el.dataset.id); });
+  document.querySelectorAll('.tab').forEach(el=>{ el.onclick = ()=>{ activeDomain = el.dataset.domain; render(); }; });
+}
+
+document.getElementById('resetBtn').onclick = async ()=>{
+  if(confirm('Reset ALL progress across every domain? This cannot be undone.')){
+    progress = {};
+    await saveProgress();
+    render();
+  }
+};
+
+const ringsEl = document.getElementById('rings');
+for(let i=0;i<14;i++){ const r=document.createElement('div'); r.className='ring'; ringsEl.appendChild(r); }
+
+loadProgress();
+</script>
+</body>
+</html>
